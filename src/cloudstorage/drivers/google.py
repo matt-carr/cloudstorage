@@ -94,7 +94,7 @@ class GoogleStorageDriver(Driver):
             os.environ[self._CREDENTIALS_ENV_NAME] = key
 
         google_application_credentials = os.getenv(self._CREDENTIALS_ENV_NAME)
-        if not os.path.isfile(google_application_credentials):
+        if google_application_credentials and not os.path.isfile(google_application_credentials):
             raise CredentialsError(
                 "Please set environment variable "
                 "'GOOGLE_APPLICATION_CREDENTIALS' or provider file path "
